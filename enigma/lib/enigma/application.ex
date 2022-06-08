@@ -10,17 +10,7 @@ defmodule Enigma.Application do
     IO.puts("Starting application")
 
     children = [
-      {Enigma.Server, :hulk},
-      {Enigma.Server, :batman},
-      {Enigma.Server, :spiderman},
-      {Enigma.Server, :neo},
-      {Enigma.Server, :thor},
-      {Enigma.Server, :lukeskywalker},
-      {Enigma.Server, :wonderwoman},
-      {Enigma.Server, :wolverine},
-      {Enigma.Server, :blackpanther}
-      # Starts a worker by calling: Enigma.Worker.start_link(arg)
-      # {Enigma.Worker, arg}
+      {DynamicSupervisor, strategy: :one_for_one}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
