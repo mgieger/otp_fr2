@@ -18,7 +18,7 @@ defmodule Enigma.Game do
   end
 
   def render_row(attempt, answer) do
-    (attempt |> Enum.join(" ")) <> " | " <> Score.render(answer, attempt)
+    Enum.join(attempt, " ") <> " | " <> Score.render(answer, attempt)
   end
 
   def render(game) do

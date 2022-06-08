@@ -24,7 +24,9 @@ defmodule Enigma.Server do
 
   def attempt(game_name, attempt) do
     IO.puts("Attempt made")
-    GenServer.call(game_name, {:attempt, attempt})
+
+    game_name
+    |> GenServer.call({:attempt, attempt})
     |> IO.puts()
   end
 end
